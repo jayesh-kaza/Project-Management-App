@@ -6,13 +6,14 @@ const buttonStyle = {
   outline: 0
 };
 
-function NavIcons({ children }) {
+function NavIcons({ onClick=null,children }) {
   return (
     <IconButton
       style={buttonStyle}
       disableRipple="true"
       disableTouchRipple="true"
       size="small"
+      onClick = {onClick}
     >
       {children}
     </IconButton>

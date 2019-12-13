@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppBar, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Logo from "../../Molecules/Logo";
 import NavGroup from "../../Molecules/NavGroup";
 import NavIcons from "../../Molecules/NavIcons";
+import Login from '../../Pages/Login/Login'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,7 +30,7 @@ const divStyle = {
   justifyContent: "space-between"
 };
 
-function Header() {
+const Header=({loginOpen})=> {
   const classes = useStyles();
   const firstGroup = [
     <NavIcons>
@@ -47,7 +48,7 @@ function Header() {
     <NavIcons>Pricing</NavIcons>
   ];
   const secondGroup = [
-    <NavIcons>Log In</NavIcons>,
+    <NavIcons onClick={loginOpen}>Log In</NavIcons>,
     <Button
       size="small"
       color="primary"
