@@ -1,5 +1,5 @@
 import React from 'react';
-import PageTemplate from '../../Templates/PageTemplate/Index';
+import PageTemplate from '../../Templates/PageTemplate';
 import Header from '../../Organism/LandingPageHeader';
 import Heading from '../../Atoms/MainHeading';
 import SubHeading from '../../Atoms/SubHeading';
