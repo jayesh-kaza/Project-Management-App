@@ -1,10 +1,10 @@
-import React from "react";
+import React ,{useState}from "react";
 import PageTemplate from "../../Templates/PageTemplate";
 import Header from "../../Organism/LandingPageHeader";
 import Heading from "../../Atoms/MainHeading";
 import SubHeading from "../../Atoms/SubHeading";
-import { Button, Typography } from "@material-ui/core";
-
+import { Button } from "@material-ui/core";
+import Login from '../Login/Login'
 const headingStyle = {
   fontFamily: "gordita,Helvetica Neue,sans-serif",
   fontSize: "2.8125rem",
@@ -30,9 +30,22 @@ const buttonStyle = {
   textTransform: "none"
 };
 
-function LandingPage() {
+const LandingPage=(props)=> {
+  const [logged,setLogged]=useState(false)
+  const [test,setTest]=useState('test')
+
+const loginOpen=()=>{
+console.log("WE")
+setLogged(true)
+setTest('jayesh')
+}
+
+const loginClose=()=>{
+setLogged(false)
+}
   return (
-    <PageTemplate header={<Header />}>
+    <div><Login logged={logged} loginClose={loginClose}/>
+    <PageTemplate header={<Header loginOpen={loginOpen}/>}>
       <div align="center">
         <Heading style={headingStyle}>
           Make more time for the work that matters most{" "}
@@ -45,7 +58,7 @@ function LandingPage() {
           <Typography>Try For Free</Typography>
         </Button>
       </div>
-    </PageTemplate>
+    </PageTemplate></div>
   );
 }
 
