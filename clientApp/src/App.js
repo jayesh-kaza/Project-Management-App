@@ -2,7 +2,7 @@ import React from "react";
 import LandingPage from "./Components/Pages/LandingPage";
 
 const App = props => {
-  return(<LandingPage/>)
+  return <LandingPage />;
 };
 
 export default App;
