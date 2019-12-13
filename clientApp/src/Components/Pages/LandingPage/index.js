@@ -3,7 +3,7 @@ import PageTemplate from "../../Templates/PageTemplate";
 import Header from "../../Organism/LandingPageHeader";
 import Heading from "../../Atoms/MainHeading";
 import SubHeading from "../../Atoms/SubHeading";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 
 const headingStyle = {
   fontFamily: "gordita,Helvetica Neue,sans-serif",
@@ -26,7 +26,8 @@ const subHeadingStyle = {
 
 const buttonStyle = {
   backgroundColor: "#635ac7",
-  outline: 0
+  outline: 0,
+  textTransform: "none"
 };
 
 function LandingPage() {
@@ -41,7 +42,7 @@ function LandingPage() {
           goals, projects, and daily tasks that grow business.{" "}
         </SubHeading>
         <Button variant="contained" color="primary" style={buttonStyle}>
-          Try For Free
+          <Typography>Try For Free</Typography>
         </Button>
       </div>
     </PageTemplate>

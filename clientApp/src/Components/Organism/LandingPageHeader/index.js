@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Button } from "@material-ui/core";
+import { AppBar, Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Logo from "../../Molecules/Logo";
@@ -52,13 +52,18 @@ function Header() {
       size="small"
       color="primary"
       variant="contained"
-      style={{ backgroundColor: "#635ac7", outline: 0 }}
+      style={{ backgroundColor: "#635ac7", outline: 0, textTransform: "none" }}
     >
-      Try For Free
+      <Typography>Try For Free</Typography>
     </Button>
   ];
   return (
-    <AppBar color="default" elevation="none" className={classes.root}>
+    <AppBar
+      color="default"
+      elevation="none"
+      className={classes.root}
+      position="relative"
+    >
       <div style={divStyle}>
         <Logo icon="asana" width="50" height="40" />
         <NavGroup components={firstGroup} />
