@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { AppBar, Button } from "@material-ui/core";
+import React from "react";
+import { AppBar, Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Logo from "../../Molecules/Logo";
 import NavGroup from "../../Molecules/NavGroup";
 import NavIcons from "../../Molecules/NavIcons";
-import Login from '../../Pages/Login/Login'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +29,7 @@ const divStyle = {
   justifyContent: "space-between"
 };
 
-const Header=({loginOpen})=> {
+const Header = ({ loginOpen }) => {
   const classes = useStyles();
   const firstGroup = [
     <NavIcons>
@@ -53,13 +52,18 @@ const Header=({loginOpen})=> {
       size="small"
       color="primary"
       variant="contained"
-      style={{ backgroundColor: "#635ac7", outline: 0 }}
+      style={{ backgroundColor: "#635ac7", outline: 0, textTransform: "none" }}
     >
-      Try For Free
+      <Typography style={{ color: "white" }}>Try For Free</Typography>
     </Button>
   ];
   return (
-    <AppBar color="default" elevation="none" className={classes.root}>
+    <AppBar
+      color="default"
+      elevation="none"
+      className={classes.root}
+      position="relative"
+    >
       <div style={divStyle}>
         <Logo icon="asana" width="50" height="40" />
         <NavGroup components={firstGroup} />
@@ -67,6 +71,6 @@ const Header=({loginOpen})=> {
       <NavGroup components={secondGroup} />
     </AppBar>
   );
-}
+};
 
 export default Header;
