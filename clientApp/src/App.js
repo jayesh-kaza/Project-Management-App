@@ -4,14 +4,14 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import HomePageHeader from "./Components/Organism/HomePageHeader";
 
 const App = props => {
-  const [log, setLog] = useState(true);
-  const onClickHandle = () => {
-    console.log(log)
-    setLog(!log)
-  }
+  // const [log, setLog] = useState(true);
+  // const onClickHandle = () => {
+  //   console.log
+  //   setLog(!log)
+  // }
   return <Router>
-    {log}?
-    <LandingPage onChange={onClickHandle} />:
+    {/* {log}?
+    <LandingPage onChange={onClickHandle} />: */}
     <HomePageHeader />
   </Router>;
 };
