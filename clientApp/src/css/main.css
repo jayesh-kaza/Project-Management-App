@@ -1,106 +1,107 @@
-
-
-
-
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+  src: url("../fonts/poppins/Poppins-Regular.ttf");
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+  src: url("../fonts/poppins/Poppins-Bold.ttf");
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+  src: url("../fonts/poppins/Poppins-Medium.ttf");
 }
 
 @font-face {
   font-family: Raleway-Regular;
-  src: url('../fonts/raleway/Raleway-Regular.ttf'); 
+  src: url("../fonts/raleway/Raleway-Regular.ttf");
 }
 
 @font-face {
   font-family: Raleway-Black;
-  src: url('../fonts/raleway/Raleway-Black.ttf'); 
+  src: url("../fonts/raleway/Raleway-Black.ttf");
 }
 
 @font-face {
   font-family: Raleway-SemiBold;
-  src: url('../fonts/raleway/Raleway-SemiBold.ttf'); 
+  src: url("../fonts/raleway/Raleway-SemiBold.ttf");
 }
 
 @font-face {
   font-family: Raleway-Bold;
-  src: url('../fonts/raleway/Raleway-Bold.ttf'); 
+  src: url("../fonts/raleway/Raleway-Bold.ttf");
 }
-
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-body, html {
-	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+body,
+html {
+  height: 100%;
+  font-family: Poppins-Regular, sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
 }
 
 a:focus {
-	outline: none !important;
+  outline: none !important;
 }
 
 a:hover {
-	text-decoration: none;
-  color: #796EFF;
-  transition: box-shadow .15s;
+  text-decoration: none;
+  color: #796eff;
+  transition: box-shadow 0.15s;
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
-	margin: 0px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
 }
 
 p {
-	font-family: Poppins-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
 }
 
-ul, li {
-	margin: 0px;
-	list-style-type: none;
+ul,
+li {
+  margin: 0px;
+  list-style-type: none;
 }
-
 
 /*---------------------------------------------*/
 input {
-	outline: none;
-	border: none;
+  outline: none;
+  border: none;
 }
 
 textarea {
@@ -108,45 +109,77 @@ textarea {
   border: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   border-color: transparent !important;
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-input:focus::-moz-placeholder { color:transparent; }
-input:focus:-ms-input-placeholder { color:transparent; }
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
 
-textarea:focus::-webkit-input-placeholder { color:transparent; }
-textarea:focus:-moz-placeholder { color:transparent; }
-textarea:focus::-moz-placeholder { color:transparent; }
-textarea:focus:-ms-input-placeholder { color:transparent; }
+textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+textarea:focus:-moz-placeholder {
+  color: transparent;
+}
+textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
 
-input::-webkit-input-placeholder { color: #acacac; }
-input:-moz-placeholder { color: #acacac; }
-input::-moz-placeholder { color: #acacac; }
-input:-ms-input-placeholder { color: #acacac; }
+input::-webkit-input-placeholder {
+  color: #acacac;
+}
+input:-moz-placeholder {
+  color: #acacac;
+}
+input::-moz-placeholder {
+  color: #acacac;
+}
+input:-ms-input-placeholder {
+  color: #acacac;
+}
 
-textarea::-webkit-input-placeholder { color: #acacac; }
-textarea:-moz-placeholder { color: #acacac; }
-textarea::-moz-placeholder { color: #acacac; }
-textarea:-ms-input-placeholder { color: #acacac; }
+textarea::-webkit-input-placeholder {
+  color: #acacac;
+}
+textarea:-moz-placeholder {
+  color: #acacac;
+}
+textarea::-moz-placeholder {
+  color: #acacac;
+}
+textarea:-ms-input-placeholder {
+  color: #acacac;
+}
 
 /*---------------------------------------------*/
 button {
-	outline: none !important;
-	border: none;
-	background: transparent;
+  outline: none !important;
+  border: none;
+  background: transparent;
 }
 
 button:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 iframe {
-	border: none !important;
+  border: none !important;
 }
-
 
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
@@ -165,7 +198,6 @@ iframe {
   border-color: #d33f8d;
 }
 
-
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 
@@ -175,7 +207,7 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;  
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -204,7 +236,7 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url('../images/img-01.png');
+  background-image: url("../images/img-01.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -216,8 +248,6 @@ iframe {
   border-radius: 3px;
   overflow: hidden;
 }
-
-
 
 /*------------------------------------------------------------------
 [  ]*/
@@ -244,7 +274,6 @@ iframe {
   display: block;
 }
 
-
 /*---------------------------------------------*/
 .wrap-input100 {
   position: relative;
@@ -266,7 +295,6 @@ iframe {
   padding: 0 30px 0 65px;
 }
 
-
 /*------------------------------------------------------------------
 [ Focus ]*/
 .focus-input100 {
@@ -279,7 +307,7 @@ iframe {
   width: 100%;
   height: 100%;
   box-shadow: 0px 0px 0px 0px;
-  color: rgba(211,63,141, 0.6);
+  color: rgba(211, 63, 141, 0.6);
 }
 
 .input100:focus + .focus-input100 {
@@ -383,7 +411,6 @@ iframe {
   color: #d33f8d;
 }
 
-
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login100-form-btn {
@@ -434,7 +461,6 @@ iframe {
   font-family: Raleway-Bold;
   font-size: 16px;
   line-height: 1.2;
-  
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -455,7 +481,6 @@ iframe {
   transition: all 0.4s;
 }
 
-
 .btn-face {
   color: #3b5998;
 }
@@ -467,7 +492,7 @@ iframe {
 }
 
 .btn-google {
-  color: #9CA6AF;
+  color: #9ca6af;
 }
 
 .btn-google img {
@@ -476,15 +501,12 @@ iframe {
   padding-bottom: 1px;
 }
 
-
 .btn-face:hover,
 .btn-google:hover {
-  border-color: #FFFF;
-  box-shadow: 0 3px 5px 0 rgba(36,50,66,.2);
-  transition: box-shadow .15s;
+  border-color: #ffff;
+  box-shadow: 0 3px 5px 0 rgba(36, 50, 66, 0.2);
+  transition: box-shadow 0.15s;
 }
-
-
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
