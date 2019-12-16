@@ -104,6 +104,7 @@ const Login = props => {
             size="large"
             color="inherit"
             className={classes.Button}
+            onClick={props.onChange}
           >
             Login
           </Button>

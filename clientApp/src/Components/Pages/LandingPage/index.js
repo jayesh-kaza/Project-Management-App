@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 import PageTemplate from "../../Templates/PageTemplate";
 import Header from "../../Organism/LandingPageHeader";
 import Heading from "../../Atoms/MainHeading";
@@ -29,35 +29,35 @@ const buttonStyle = {
   outline: 0
 };
 
-const LandingPage=(props)=> {
-  const [logged,setLogged]=useState(false)
-  const [test,setTest]=useState('test')
+const LandingPage = (props) => {
+  const [logged, setLogged] = useState(false)
+  const [test, setTest] = useState('test')
 
-const loginOpen=()=>{
-console.log("WE")
-setLogged(true)
-setTest('jayesh')
-}
+  const loginOpen = () => {
+    console.log("WE")
+    setLogged(true)
+    setTest('jayesh')
+  }
 
-const loginClose=()=>{
-setLogged(false)
-}
+  const loginClose = () => {
+    setLogged(false)
+  }
   return (
-    <div><Login logged={logged} loginClose={loginClose}/>
-    <PageTemplate header={<Header loginOpen={loginOpen}/>}>
-      <div align="center">
-        <Heading style={headingStyle}>
-          Make more time for the work that matters most{" "}
-        </Heading>
-        <SubHeading style={subHeadingStyle}>
-          Asana is the work management platform teams use to stay focused on the
+    <div><Login logged={logged} onChange={props.onChange} loginClose={loginClose} />
+      <PageTemplate header={<Header loginOpen={loginOpen} />}>
+        <div align="center">
+          <Heading style={headingStyle}>
+            Make more time for the work that matters most{" "}
+          </Heading>
+          <SubHeading style={subHeadingStyle}>
+            Asana is the work management platform teams use to stay focused on the
           goals, projects, and daily tasks that grow business.{" "}
-        </SubHeading>
-        <Button variant="contained" color="primary" style={buttonStyle}>
-          Try For Free
+          </SubHeading>
+          <Button variant="contained" color="primary" style={buttonStyle}>
+            Try For Free
         </Button>
-      </div>
-    </PageTemplate></div>
+        </div>
+      </PageTemplate></div>
   );
 }
 
