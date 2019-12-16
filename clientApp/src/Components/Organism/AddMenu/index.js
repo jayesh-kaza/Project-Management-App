@@ -16,7 +16,7 @@ import { IconButton } from '@material-ui/core';
 
 const StyledMenu = withStyles({
   paper: {
-  
+
   },
 })(props => (
   <Menu
@@ -36,7 +36,7 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles(theme => ({
   root: {
-    '&:hover':{
+    '&:hover': {
       //backgroundColor:linearGradient('45deg', '#ff5263 0%', '#ff7381 60%', '#fcbd01 115%')
     },
     '&:focus': {
@@ -50,7 +50,7 @@ const StyledMenuItem = withStyles(theme => ({
 
 export default function AddMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  let addIcon=<AddCircleIcon color="secondary"/>
+  let addIcon = <AddCircleIcon color="secondary" />
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -72,18 +72,19 @@ export default function AddMenu() {
         {addIcon}
       </Button> */}
       <IconButton children={addIcon}
-      onClick={handleClick}
-      style={{ backgroundColor: 'transparent',outline:"0"
-      // background: "linearGradient(to top right,#ff1f35, #ff4053 35%, #c99701)",
-      // backgroundColor: "rgba(0, 0, 0, 0)",
-      // backgroundPositionX:"0%",
-      // backgroundPositionY: "0%",
-      // backgroundRepeat: "repeat",
-      // backgroundAttachment: "scroll", 
-    }} 
-      disableRipple="true"
+        onClick={handleClick}
+        style={{
+          backgroundColor: 'transparent', outline: "0", right: '-12px',
+          // background: "linearGradient(to top right,#ff1f35, #ff4053 35%, #c99701)",
+          // backgroundColor: "rgba(0, 0, 0, 0)",
+          // backgroundPositionX:"0%",
+          // backgroundPositionY: "0%",
+          // backgroundRepeat: "repeat",
+          // backgroundAttachment: "scroll", 
+        }}
+        disableRipple="true"
       >
-        </IconButton>
+      </IconButton>
 
       <StyledMenu
         id="customized-menu"
@@ -94,31 +95,31 @@ export default function AddMenu() {
       >
         <StyledMenuItem>
           <ListItemIcon>
-            <CheckCircleOutlinedIcon fontSize="small"/>
+            <CheckCircleOutlinedIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Task" />
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemIcon>
-            <AssignmentOutlinedIcon fontSize="small"/>
+            <AssignmentOutlinedIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Project" />
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemIcon>
-            <ForumOutlinedIcon/>
+            <ForumOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Conversation" />
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemIcon>
-            <GroupOutlinedIcon/>
+            <GroupOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Team" />
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemIcon>
-            <PersonAddOutlinedIcon/>
+            <PersonAddOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Invite" />
         </StyledMenuItem>
