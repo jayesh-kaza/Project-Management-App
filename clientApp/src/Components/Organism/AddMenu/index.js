@@ -1,34 +1,32 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
-import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
-import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
-import { IconButton } from '@material-ui/core';
-
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import {
+  IconButton,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  ListItemText
+} from "@material-ui/core";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
+import CheckCircleOutlinedIcon from "@material-ui/icons/CheckCircleOutlined";
+import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
+import GroupOutlinedIcon from "@material-ui/icons/GroupOutlined";
+import ForumOutlinedIcon from "@material-ui/icons/ForumOutlined";
 
 const StyledMenu = withStyles({
-  paper: {
-
-  },
+  paper: {}
 })(props => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
     anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'center',
+      vertical: "bottom",
+      horizontal: "center"
     }}
     transformOrigin={{
-      vertical: 'top',
-      horizontal: 'center',
+      vertical: "top",
+      horizontal: "center"
     }}
     {...props}
   />
@@ -36,21 +34,21 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles(theme => ({
   root: {
-    '&:hover': {
+    "&:hover": {
       //backgroundColor:linearGradient('45deg', '#ff5263 0%', '#ff7381 60%', '#fcbd01 115%')
     },
-    '&:focus': {
+    "&:focus": {
       backgroundColor: theme.palette.primary.main,
-      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-        color: theme.palette.common.white,
-      },
-    },
-  },
+      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
+        color: theme.palette.common.white
+      }
+    }
+  }
 }))(MenuItem);
 
 export default function AddMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  let addIcon = <AddCircleIcon color="secondary" />
+  let addIcon = <AddCircleIcon color="secondary" />;
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -71,14 +69,16 @@ export default function AddMenu() {
         >
         {addIcon}
       </Button> */}
-      <IconButton children={addIcon}
+      <IconButton
+        children={addIcon}
         onClick={handleClick}
         style={{
-          backgroundColor: 'transparent', outline: "0", right: '-12px',
+          backgroundColor: "transparent",
+          outline: "0",
+          right: "-12px"
         }}
         disableRipple="true"
-      >
-      </IconButton>
+      ></IconButton>
 
       <StyledMenu
         id="customized-menu"

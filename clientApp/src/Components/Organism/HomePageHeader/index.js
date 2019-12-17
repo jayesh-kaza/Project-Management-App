@@ -1,25 +1,26 @@
-import React, { Fragment } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import Avatar from '@material-ui/core/Avatar';
-import CustomButton from '../../Atoms/Button';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import img from '../../Atoms/Images/1.jpg'
-import SearchBar from '../../Molecules/SeachBar';
-import AddMenu from '../AddMenu';
-import UserMenu from '../UserMenu'
-import HelpMenu from '../HelpMenu'
+import React, { Fragment } from "react";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Avatar
+} from "@material-ui/core";
+import { fade, makeStyles } from "@material-ui/core/styles";
+import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
+import CustomButton from "../../Atoms/Button";
+import img from "../../Atoms/Images/1.jpg";
+import SearchBar from "../../Molecules/SeachBar";
+import AddMenu from "../AddMenu";
+import UserMenu from "../UserMenu";
+import HelpMenu from "../HelpMenu";
 import clsx from "clsx";
+
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-
+    flexGrow: 1
   },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
@@ -37,8 +38,8 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    backgroundColor: 'transparent',
-    outline: "0",
+    backgroundColor: "transparent",
+    outline: "0"
   },
   hide: {
     display: "none"
@@ -47,94 +48,69 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   avatar: {
-    background: '#4caf50',
+    background: "#4caf50",
     width: 24,
-    height: 24,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  //   container:{
-  //       display:"flex",
-  //     flexDirection:"row-reverse",
-  //   },
-
-  title: {
-    flexGrow: 1,
-    fontSize: '20px',
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
+    height: 24
   },
   search: {
-    position: 'relative',
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+    "&:hover": {
+      backgroundColor: fade(theme.palette.common.white, 0.25)
     },
     marginLeft: 0,
     marginRight: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
+      width: "auto"
+    }
   },
   searchIcon: {
     width: theme.spacing(6),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   inputRoot: {
-    color: 'inherit',
+    color: "inherit"
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
       width: 120,
-      '&:focus': {
-        width: 500,
-      },
-    },
-  },
-}));
-
-
-
-export default function HomePageHeader({ open, handleDrawerOpen }) {
-  const theme1 = createMuiTheme({
-    overrides: {
-      MuiSelect: {
-        select: {
-          "&:focus": {
-            background: "$labelcolor"
-          }
-        }
+      "&:focus": {
+        width: 500
       }
     }
-  });
+  }
+}));
+
+export default function HomePageHeader({ open, handleDrawerOpen }) {
   const classes = useStyles();
-  let userIcon = <Avatar alt="r" className={classes.avatar} src={img} />
-  // let userIcon=<Avatar variant="rounded" className={classes.avatar}>r</Avatar>
+  let userIcon = <Avatar alt="r" className={classes.avatar} src={img} />;
   return (
     <Fragment>
       <div className={classes.root}>
-        <AppBar position="static" color="#ffffff" elevation="none"
+        <AppBar
+          position="static"
+          color="#ffffff"
+          elevation="none"
           className={clsx(classes.appBar, {
             [classes.appBarShift]: open
-          })}>
+          })}
+        >
           <Toolbar>
             <IconButton
               style={{
-                backgroundColor: 'transparent', outline: "0",
+                backgroundColor: "transparent",
+                outline: "0"
               }}
               disableRipple="true"
               color="inherit"
@@ -147,11 +123,11 @@ export default function HomePageHeader({ open, handleDrawerOpen }) {
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
               Home
-          </Typography>
+            </Typography>
 
             <div className={classes.search}>
               <div className={classes.searchIcon}>
-                <SearchIcon fontSize='small' style={{ color: "#bdbdbd" }} />
+                <SearchIcon fontSize="small" style={{ color: "#bdbdbd" }} />
               </div>
               <SearchBar />
             </div>
@@ -167,11 +143,9 @@ export default function HomePageHeader({ open, handleDrawerOpen }) {
             <div>
               <UserMenu name={userIcon} />
             </div>
-
           </Toolbar>
         </AppBar>
       </div>
     </Fragment>
   );
 }
-
