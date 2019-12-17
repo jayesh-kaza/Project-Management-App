@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { withStyles } from "@material-ui/core/styles";
 import {
   IconButton,
@@ -13,6 +13,7 @@ import CheckCircleOutlinedIcon from "@material-ui/icons/CheckCircleOutlined";
 import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 import GroupOutlinedIcon from "@material-ui/icons/GroupOutlined";
 import ForumOutlinedIcon from "@material-ui/icons/ForumOutlined";
+import Dialogs from "../../Molecules/Dialogs";
 
 const StyledMenu = withStyles({
   paper: {}
@@ -35,7 +36,7 @@ const StyledMenu = withStyles({
 const StyledMenuItem = withStyles(theme => ({
   root: {
     "&:hover": {
-      //backgroundColor:linearGradient('45deg', '#ff5263 0%', '#ff7381 60%', '#fcbd01 115%')
+      // backgroundColor: `linearGradient('45deg', '#ff5263 0%', '#ff7381 60%', '#fcbd01 115%')`
     },
     "&:focus": {
       backgroundColor: theme.palette.primary.main,
@@ -47,7 +48,8 @@ const StyledMenuItem = withStyles(theme => ({
 }))(MenuItem);
 
 export default function AddMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open,setOpen] = useState(false);
   let addIcon = <AddCircleIcon color="secondary" />;
 
   const handleClick = event => {
@@ -58,17 +60,13 @@ export default function AddMenu() {
     setAnchorEl(null);
   };
 
+  const handleOpen = ()=>{
+    setOpen(!open);
+    setAnchorEl(null);
+  };
+
   return (
     <div>
-      {/* <Button
-        aria-controls="customized-menu"
-        aria-haspopup="true"
-        onClick={handleClick}
-        style={{ backgroundColor: 'transparent' }} 
-        disableRipple="true"
-        >
-        {addIcon}
-      </Button> */}
       <IconButton
         children={addIcon}
         onClick={handleClick}
@@ -87,37 +85,38 @@ export default function AddMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem>
+        <StyledMenuItem onClick={handleOpen}>
           <ListItemIcon>
             <CheckCircleOutlinedIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Task" />
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem onClick={()=>console.log("project")}>
           <ListItemIcon>
             <AssignmentOutlinedIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Project" />
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem onClick={()=>console.log("Conversation")}>
           <ListItemIcon>
             <ForumOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Conversation" />
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem onClick={()=>console.log("Team")}>
           <ListItemIcon>
             <GroupOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Team" />
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem onClick={()=>console.log("invite")}>
           <ListItemIcon>
             <PersonAddOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Invite" />
         </StyledMenuItem>
       </StyledMenu>
+      {open ? <Dialogs open={open} handleOpen={handleOpen}/>:null}
     </div>
   );
 }
