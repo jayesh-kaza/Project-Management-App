@@ -75,12 +75,6 @@ export default function AddMenu() {
         onClick={handleClick}
         style={{
           backgroundColor: 'transparent', outline: "0", right: '-12px',
-          // background: "linearGradient(to top right,#ff1f35, #ff4053 35%, #c99701)",
-          // backgroundColor: "rgba(0, 0, 0, 0)",
-          // backgroundPositionX:"0%",
-          // backgroundPositionY: "0%",
-          // backgroundRepeat: "repeat",
-          // backgroundAttachment: "scroll", 
         }}
         disableRipple="true"
       >

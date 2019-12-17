@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Avatar from '@material-ui/core/Avatar';
 import CustomButton from '../../Atoms/Button';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -16,9 +14,37 @@ import SearchBar from '../../Molecules/SeachBar';
 import AddMenu from '../AddMenu';
 import UserMenu from '../UserMenu'
 import HelpMenu from '../HelpMenu'
+import clsx from "clsx";
+const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+
+  },
+  appBar: {
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen
+    })
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    backgroundColor: 'transparent',
+    outline: "0",
+  },
+  hide: {
+    display: "none"
+  },
+  title: {
+    flexGrow: 1
   },
   avatar: {
     background: '#4caf50',
@@ -83,7 +109,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function HomePageHeader() {
+export default function HomePageHeader({ open, handleDrawerOpen }) {
   const theme1 = createMuiTheme({
     overrides: {
       MuiSelect: {
@@ -96,20 +122,26 @@ export default function HomePageHeader() {
     }
   });
   const classes = useStyles();
-  let addIcon = <AddCircleIcon color="secondary" />
-  let helpIcon = <HelpOutlineOutlinedIcon />
   let userIcon = <Avatar alt="r" className={classes.avatar} src={img} />
   // let userIcon=<Avatar variant="rounded" className={classes.avatar}>r</Avatar>
   return (
-    <MuiThemeProvider theme={theme1}>
+    <Fragment>
       <div className={classes.root}>
-        <AppBar position="static" color="default" elevation="none">
+        <AppBar position="static" color="#ffffff" elevation="none"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open
+          })}>
           <Toolbar>
             <IconButton
-              edge="start"
-              className={classes.menuButton}
+              style={{
+                backgroundColor: 'transparent', outline: "0",
+              }}
+              disableRipple="true"
               color="inherit"
               aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, open && classes.hide)}
             >
               <MenuIcon />
             </IconButton>
@@ -139,7 +171,7 @@ export default function HomePageHeader() {
           </Toolbar>
         </AppBar>
       </div>
-    </MuiThemeProvider>
+    </Fragment>
   );
 }
 
