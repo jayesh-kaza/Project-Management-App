@@ -8,26 +8,29 @@ import {
     List,
     ListItem,
     ListItemIcon,
-    ListItemText
+    ListItemText,
+    Button
 } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import HomeIcon from '@material-ui/icons/Home';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
+import Logo from "../../Molecules/Logo";
+
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     root: {
         display: "flex"
     },
     drawer: {
-        color: "#151b26",
-        backgroundColor: "#151b26",
         width: drawerWidth,
         flexShrink: 0
     },
     drawerPaper: {
-        width: drawerWidth
+        width: drawerWidth,
+        backgroundColor: "#151b26"
     },
     drawerHeader: {
         display: "flex",
@@ -57,7 +60,7 @@ const useStyles = makeStyles(theme => ({
 function SideBar({ open, handleDrawerClose, routes }) {
     const classes = useStyles();
     const items = {
-        "Home": [<HomeIcon />, routes[0].path],
+        "Home": [<HomeOutlinedIcon style={{ color: "white" }} />, routes[0].path],
         "My Tasks": [<CheckCircleOutlineIcon />, routes[1].path],
         "My Projects": [<GroupWorkIcon />, routes[2].path],
         "Teams": [<GroupRoundedIcon />, routes[3].path],
@@ -65,7 +68,7 @@ function SideBar({ open, handleDrawerClose, routes }) {
 
     return (
         <Drawer
-            className={classes.drawer}
+            className={classes.root}
             variant="persistent"
             anchor="left"
             open={open}
@@ -74,9 +77,11 @@ function SideBar({ open, handleDrawerClose, routes }) {
             }}
         >
             <div className={classes.drawerHeader}>
+                <Logo icon="asana" width="50" height="40" />
                 <IconButton
                     disableRipple='true'
                     style={{
+                        color: "white",
                         backgroundColor: 'transparent', outline: "0",
                     }}
                     onClick={handleDrawerClose}>
@@ -87,7 +92,7 @@ function SideBar({ open, handleDrawerClose, routes }) {
             <List>
                 {
                     Object.keys(items).map(key => (
-                        <Link to={items[key][1]}>
+                        <Link color='inherit' underline='none' to={items[key][1]}>
                             <ListItem button key={key}>
                                 <ListItemIcon>
                                     {items[key][0]}

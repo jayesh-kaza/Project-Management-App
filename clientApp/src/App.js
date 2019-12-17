@@ -17,7 +17,6 @@ import HomePageHeader from "./Components/Organism/HomePageHeader";
 // };
 
 import React from "react";
-import Header from './Components/Organism/Header'
 import SideBar from './Components/Organism/SideBar'
 import {
   BrowserRouter as Router,
