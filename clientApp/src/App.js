@@ -1,31 +1,27 @@
 import React from "react";
-import HomePageHeader from './Components/Organism/HomePageHeader';
-import SideBar from './Components/Organism/SideBar';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from 'react-router-dom';
+import HomePageHeader from "./Components/Organism/HomePageHeader";
+import SideBar from "./Components/Organism/SideBar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const routes = [
   {
-    path: '/',
+    path: "/",
     exact: true,
     main: () => <div align="center">Home</div>
   },
   {
-    path: '/tasks',
+    path: "/tasks",
     main: () => <div align="center">My Tasks</div>
   },
   {
-    path: '/projects',
+    path: "/projects",
     main: () => <div align="center">My Projects</div>
   },
   {
-    path: '/teams',
+    path: "/teams",
     main: () => <div align="center">My Teams</div>
   }
-]
+];
 
 const App = props => {
   const [open, setOpen] = React.useState(false);
@@ -41,14 +37,19 @@ const App = props => {
     <Router>
       <div>
         <HomePageHeader open={open} handleDrawerOpen={handleDrawerOpen} />
-        <SideBar open={open} handleDrawerClose={handleDrawerClose} routes={routes} />
+        <SideBar
+          open={open}
+          handleDrawerClose={handleDrawerClose}
+          routes={routes}
+        />
         <Switch>
-          {routes.map((route) => (
+          {routes.map(route => (
             <Route
               key={route.path}
               path={route.path}
               exact={route.exact}
-              component={route.main} />
+              component={route.main}
+            />
           ))}
         </Switch>
       </div>
@@ -57,4 +58,3 @@ const App = props => {
 };
 
 export default App;
-
