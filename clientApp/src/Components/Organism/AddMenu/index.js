@@ -13,7 +13,7 @@ import CheckCircleOutlinedIcon from "@material-ui/icons/CheckCircleOutlined";
 import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 import GroupOutlinedIcon from "@material-ui/icons/GroupOutlined";
 import ForumOutlinedIcon from "@material-ui/icons/ForumOutlined";
-import Dialogs from "../../Molecules/Dialogs";
+import Dialogs from "../../Molecules/TaskDialog";
 
 const StyledMenu = withStyles({
   paper: {}
