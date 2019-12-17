@@ -38,7 +38,7 @@ const StyledMenuItem = withStyles(theme => ({
 
 export default function HelpMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  let helpIcon=<HelpOutlineOutlinedIcon/>
+  let helpIcon = <HelpOutlineOutlinedIcon />
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -53,7 +53,7 @@ export default function HelpMenu() {
         aria-controls="customized-menu"
         aria-haspopup="true"
         onClick={handleClick}
-        style={{ backgroundColor: 'transparent',outline:"0" }}
+        style={{ backgroundColor: 'transparent', outline: "0" }}
         disableRipple="true"
       >
         {helpIcon}
@@ -67,32 +67,32 @@ export default function HelpMenu() {
       >
         <StyledMenuItem>
           <ListItemText primary="quick start" />
-        </StyledMenuItem>  
-        
+        </StyledMenuItem>
+
         <StyledMenuItem>
           <ListItemText primary="Help with features" />
-        </StyledMenuItem>  
-        
+        </StyledMenuItem>
+
         <StyledMenuItem>
           <ListItemText primary="ways to use" />
-        </StyledMenuItem>  
-        
+        </StyledMenuItem>
+
         <StyledMenuItem>
           <ListItemText primary="privacy policy" />
-        </StyledMenuItem>  
-        
+        </StyledMenuItem>
+
         <StyledMenuItem>
           <ListItemText primary="contact support" />
-        </StyledMenuItem>  
-        
+        </StyledMenuItem>
+
         <StyledMenuItem>
           <ListItemText primary="watch tutorials" />
-        </StyledMenuItem>  
-        
+        </StyledMenuItem>
+
         <StyledMenuItem>
           <ListItemText primary="feedback" />
-        </StyledMenuItem>  
-        
+        </StyledMenuItem>
+
       </StyledMenu>
     </div>
   );
