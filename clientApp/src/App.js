@@ -1,24 +1,6 @@
-// import React, { useState } from "react";
-// import LandingPage from "./Components/Pages/LandingPage";
-// import { BrowserRouter as Router } from 'react-router-dom'
-import HomePageHeader from "./Components/Organism/HomePageHeader";
-
-// const App = props => {
-//   // const [log, setLog] = useState(true);
-//   // const onClickHandle = () => {
-//   //   console.log
-//   //   setLog(!log)
-//   // }
-//   return <Router>
-//     {/* {log}?
-//     <LandingPage onChange={onClickHandle} />: */}
-//     <HomePageHeader />
-//   </Router>;
-// };
-
 import React from "react";
-import Header from './Components/Organism/Header'
-import SideBar from './Components/Organism/SideBar'
+import HomePageHeader from './Components/Organism/HomePageHeader';
+import SideBar from './Components/Organism/SideBar';
 import {
   BrowserRouter as Router,
   Route,
