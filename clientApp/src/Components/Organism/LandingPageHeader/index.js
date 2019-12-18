@@ -59,10 +59,10 @@ const Header = ({ loginOpen }) => {
   ];
   return (
     <AppBar
-      color="default"
+      position="static"
+      color="#ffffff"
       elevation="none"
       className={classes.root}
-      position="relative"
     >
       <div style={divStyle}>
         <Logo icon="asana" width="50" height="40" />

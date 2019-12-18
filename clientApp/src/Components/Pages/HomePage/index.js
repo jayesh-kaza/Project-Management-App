@@ -1,22 +1,18 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   card: {
     minWidth: 20,
-    height: "100",
+    height: "43.5vw",
     width: "100",
-    align: "center"
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
+    align: "center",
+    marginLeft: "10px",
+    marginRight: "10px",
+    marginBottom: "10px",
   },
   title: {
     fontSize: 14
@@ -30,7 +26,7 @@ const HomePage = props => {
   const classes = useStyles();
   return (
     <Card raised="true" className={classes.card}>
-      <CardContent align="center">
+      <CardContent align="center" style={{marginTop:"150px"}}>
         <Typography
           className={classes.title}
           color="textSecondary"
@@ -50,9 +46,6 @@ const HomePage = props => {
           {'"a benevolent smile"'}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 };

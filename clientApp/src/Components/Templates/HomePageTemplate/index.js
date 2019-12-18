@@ -3,6 +3,30 @@ import HomePageHeader from "../../Organism/HomePageHeader";
 import SideBar from "../../Organism/SideBar";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "../../Pages/HomePage";
+import TasksPage from "../../Pages/TasksPage";
+import clsx from "clsx";
+import { fade, makeStyles } from "@material-ui/core/styles";
+
+const drawerWidth = 240;
+const useStyles = makeStyles(theme => ({
+  root: {
+    // flexGrow: 1
+  },
+  appBar: {
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen
+    })
+  }
+}));
 
 const routes = [
   {
@@ -12,7 +36,11 @@ const routes = [
   },
   {
     path: "/tasks",
-    main: () => <div align="center">My Tasks</div>
+    main: () => (
+      <div align="center">
+        <TasksPage />
+      </div>
+    )
   },
   {
     path: "/projects",
@@ -49,6 +77,7 @@ const routes = [
 ];
 
 function HomePageTemplate({ setPage }) {
+  const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -64,12 +93,16 @@ function HomePageTemplate({ setPage }) {
         setPage={setPage}
         handleDrawerOpen={handleDrawerOpen}
       />
-      <SideBar
-        open={open}
-        handleDrawerClose={handleDrawerClose}
-        routes={routes}
-      />
-      <div>
+      <div
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open
+        })}
+      >
+        <SideBar
+          open={open}
+          handleDrawerClose={handleDrawerClose}
+          routes={routes}
+        />
         <Switch>
           {routes.map(route => (
             <Route
