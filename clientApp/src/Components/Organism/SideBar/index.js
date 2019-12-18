@@ -11,6 +11,7 @@ import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
 import Logo from "../../Molecules/Logo";
 import DisplayListWithIcon from "../../Molecules/DisplayListWithIcon";
+import DisplayList from '../../Molecules/DisplayList'
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     root: {
@@ -89,9 +90,9 @@ function SideBar({ open, handleDrawerClose, routes }) {
                     <ChevronRightIcon />
                 </IconButton>
             </div>
-            <DisplayListWithIcon flag='true' items={items} />
-            <DisplayListWithIcon flag='false' items={list1} />
-            <DisplayListWithIcon flag='false' items={list2} />
+            <DisplayListWithIcon items={items} />
+            <DisplayList items={list1} />
+            <DisplayList items={list2} />
         </Drawer>
     );
 }

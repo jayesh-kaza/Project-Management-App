@@ -6,6 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import CheckIcon from "@material-ui/icons/Check";
+import FullDivider from "../../Atoms/Divider";
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #d3d4d5"
@@ -72,6 +73,7 @@ export default function UserMenu(props) {
           </ListItemIcon>
           <ListItemText primary="zemosolabs" />
         </StyledMenuItem>
+        <FullDivider color=''/>
         <StyledMenuItem>
           <ListItemIcon></ListItemIcon>
           <ListItemText primary="Organisation Settings" />

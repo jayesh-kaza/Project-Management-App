@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
 import {
     List,
     ListItem,
@@ -11,11 +12,7 @@ import FullDivider from "../../Atoms/Divider";
 const useStyles = makeStyles(theme => ({
     icon: {
         color: '#cbd4db',
-        minWidth: '35px',
-    },
-    margin: {
-        marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(2)
+        minWidth: '30px',
     },
     link: {
         "&:hover": {
@@ -36,6 +33,12 @@ const useStyles = makeStyles(theme => ({
         paddingTop: '0px',
     },
     listText: {
+        fontWeight: '400',
+        fontSize: '14px',
+        primary: {
+            fontSize: '14px',
+            fontWeight: '400',
+        },
         color: '#cbd4db',
         fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans- serif',
     },
@@ -46,7 +49,10 @@ const DisplayListWithIcon = (props) => {
     const items = props.items;
     const flag = props.flag;
     return (
-        <List>
+        <List style={{
+            paddingTop: '0px',
+            paddingBottom: '0px',
+        }}>
             {
                 Object.keys(items).map(key => (
                     <Link className={classes.link} to={items[key][1]}>
@@ -54,11 +60,11 @@ const DisplayListWithIcon = (props) => {
                             <ListItemIcon className={classes.icon}>
                                 {items[key][0]}
                             </ListItemIcon>
-                            <ListItemText className={classes.listText} primary={key} />
+                            <ListItemText styles={{ fontSize: '14px' }} className={classes.listText} primary={<Typography variant='body2'>{key}</Typography>} />
                         </ListItem>
                     </Link>
                 ))}
-            <FullDivider color='#616161' />
+            <FullDivider space='10px' color='#424242' />
         </List>
     )
 }

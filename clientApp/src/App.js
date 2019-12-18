@@ -6,12 +6,13 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+import HomePage from "./Components/Pages/HomePage";
 
 const routes = [
   {
     path: '/',
     exact: true,
-    main: () => <div align="center">Home</div>
+    main: () =><HomePage />
   },
   {
     path: '/tasks',
@@ -28,7 +29,7 @@ const routes = [
 ]
 
 const App = props => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
