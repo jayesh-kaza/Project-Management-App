@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 const routes = [
   {
-    path: "/homePage",
+    path: "/",
     exact: true,
     main: () => <HomePage />
   },
