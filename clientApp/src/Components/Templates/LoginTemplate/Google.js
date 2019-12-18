@@ -4,14 +4,26 @@ import "../../../css/util.css";
 import img from "../../Atoms/Icon/Icons/icon-google.png";
 import {Link} from "react-router-dom"
 
-// const proxyurl = "https://cors-anywhere.herokuapp.com/";
-// const onLogin = async () => {
-//   const resp = await fetch(
-//     proxyurl+"https://accounts.google.com/o/oauth2/v2/auth?client_id=245595399236-o5gujqtbe35dr6hrljaocuprqnsk5ft5.apps.googleusercontent.com&response_type=code&scope=https://www.googleapis.com/auth/gmail.send&redirect_uri=http://localhost&access_type=offline",
-//     { headers:{'Access-Control-Allow-Origin': '*'}}
-//     )
-//   document.getElementById('ggllogin').innerHTML = await resp.text()
-//}
+
+const login=async (uri)=>{
+  const url="https://www.googleapis.com/oauth2/v4/token"
+  console.log(uri.slice(uri.indexOf("code=")+5,uri.indexOf("&scope")))
+
+  const response=await fetch(url,{
+    method:'POST',
+    headers:{
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body:{
+      code:uri.slice(uri.indexOf("code=")+5,uri.indexOf("&scope")),
+      client_id:'245595399236-o5gujqtbe35dr6hrljaocuprqnsk5ft5.apps.googleusercontent.com',
+      client_secret:'eXuacGpN8uHJPrANGeY54-5v',
+      redirect_uri:'http://localhost:3000',
+      grant_type:'authorization_code',
+    }
+  })
+console.log(response)
+}
 const Google = props => {
   const clientId="245595399236-o5gujqtbe35dr6hrljaocuprqnsk5ft5.apps.googleusercontent.com"
   const scope="https://www.googleapis.com/auth/userinfo.profile"
@@ -20,9 +32,9 @@ const Google = props => {
 
   useEffect(()=>{
     if(window.location.search.includes("code=")){
-      
+      login(window.location.search)
     }
-  },[])
+  },[window.location.search])
   return (
     <div align="center">
       <a href={url}  className="btn-google m-b-10">
