@@ -37,11 +37,16 @@ function ProjectDialog({ open, handleOpen }) {
           Fill out the following to create a new project.
         </DialogContentText>
         <form className={classes.container}>
-          <TextField label="Project Name" style={{ paddingBottom: "10px" }} />
+          <TextField
+            required
+            label="Project Name"
+            style={{ paddingBottom: "10px" }}
+          />
           <TextField label="Description" style={{ paddingBottom: "20px" }} />
           <FormControl fullWidth style={{ paddingBottom: "10px" }}>
             <InputLabel htmlFor="Team">Team</InputLabel>
             <Select
+              required
               value={team}
               onChange={event => setTeam(event.target.value)}
             >

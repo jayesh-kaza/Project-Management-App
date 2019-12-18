@@ -53,7 +53,11 @@ function TeamDialog({ open, handleOpen }) {
           Fill out the following to create a new team.
         </DialogContentText>
         <form className={classes.container}>
-          <TextField label="Team Name" style={{ paddingBottom: "20px" }} />
+          <TextField
+            required
+            label="Team Name"
+            style={{ paddingBottom: "20px" }}
+          />
           <FormControl fullWidth style={{ paddingBottom: "10px" }}>
             <InputLabel id="demo-mutiple-chip-label" htmlFor="Members">
               Team Members

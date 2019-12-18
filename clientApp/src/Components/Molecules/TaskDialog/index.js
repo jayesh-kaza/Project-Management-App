@@ -43,6 +43,7 @@ function TaskDialog({ open, handleOpen }) {
           <FormControl fullWidth style={{ paddingBottom: "10px" }}>
             <InputLabel htmlFor="project">Project</InputLabel>
             <Select
+              required
               value={project}
               onChange={event => setProject(event.target.value)}
             >
@@ -53,7 +54,11 @@ function TaskDialog({ open, handleOpen }) {
               ))}
             </Select>
           </FormControl>
-          <TextField label="Task Name" style={{ paddingBottom: "10px" }} />
+          <TextField
+            required
+            label="Task Name"
+            style={{ paddingBottom: "10px" }}
+          />
           <TextField label="Assign to" style={{ paddingBottom: "30px" }} />
           <TextField label="Due by" type="date" defaultValue={todaysDate} />
         </form>
