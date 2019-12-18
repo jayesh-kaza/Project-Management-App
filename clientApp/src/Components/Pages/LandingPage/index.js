@@ -32,7 +32,7 @@ const buttonStyle = {
   color: "white"
 };
 
-const LandingPage = ({setPage}) => {
+const LandingPage = ({ setPage }) => {
   const [logged, setLogged] = useState(false);
 
   const loginOpen = () => {

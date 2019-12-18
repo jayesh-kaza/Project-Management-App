@@ -6,7 +6,7 @@ import HomePage from "../../Pages/HomePage";
 
 const routes = [
   {
-    path: "/",
+    path: "/homePage",
     exact: true,
     main: () => <HomePage />
   },

@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: "14px",
       fontWeight: "400"
     },
-    color: "#cbd4db",
+    color: "#cfd8dc",
     fontFamily:
       '-apple-system,BlinkMacSystemFont,"Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans- serif'
   }

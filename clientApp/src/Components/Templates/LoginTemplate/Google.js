@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../../css/main.css";
 import "../../../css/util.css";
 import img from "../../Atoms/Icon/Icons/icon-google.png";
+
 const Google = props => {
+  const clientId =
+    "245595399236-o5gujqtbe35dr6hrljaocuprqnsk5ft5.apps.googleusercontent.com";
+  const scope = "https://www.googleapis.com/auth/userinfo.profile";
+  const redirectUri = "http://localhost:3000/home";
+  const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&response_type=code&scope=${scope}&redirect_uri=${redirectUri}&access_type=offline`;
+
+  useEffect(() => {
+    if (window.location.search.includes("code=")) {
+    }
+  }, []);
   return (
     <div align="center">
-      <a href="www.google.com" className="btn-google m-b-10">
+      <a href={url} className="btn-google m-b-10">
         <img src={img} alt="GOOGLE" />
         Use Google Account
       </a>

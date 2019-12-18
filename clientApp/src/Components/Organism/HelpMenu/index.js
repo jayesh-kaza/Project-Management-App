@@ -1,25 +1,25 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import HelpOutlineOutlinedIcon from "@material-ui/icons/HelpOutlineOutlined";
 const StyledMenu = withStyles({
   paper: {
-    border: '1px solid #d3d4d5',
-  },
+    border: "1px solid #d3d4d5"
+  }
 })(props => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
     anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'center',
+      vertical: "bottom",
+      horizontal: "center"
     }}
     transformOrigin={{
-      vertical: 'top',
-      horizontal: 'center',
+      vertical: "top",
+      horizontal: "center"
     }}
     {...props}
   />
@@ -27,18 +27,18 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles(theme => ({
   root: {
-    '&:focus': {
+    "&:focus": {
       backgroundColor: theme.palette.primary.main,
-      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-        color: theme.palette.common.white,
-      },
-    },
-  },
+      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
+        color: theme.palette.common.white
+      }
+    }
+  }
 }))(MenuItem);
 
 export default function HelpMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  let helpIcon = <HelpOutlineOutlinedIcon />
+  let helpIcon = <HelpOutlineOutlinedIcon />;
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -53,7 +53,7 @@ export default function HelpMenu() {
         aria-controls="customized-menu"
         aria-haspopup="true"
         onClick={handleClick}
-        style={{ backgroundColor: 'transparent', outline: "0" }}
+        style={{ backgroundColor: "transparent", outline: "0" }}
         disableRipple="true"
       >
         {helpIcon}
@@ -92,7 +92,6 @@ export default function HelpMenu() {
         <StyledMenuItem>
           <ListItemText primary="feedback" />
         </StyledMenuItem>
-
       </StyledMenu>
     </div>
   );
