@@ -32,7 +32,7 @@ const buttonStyle = {
   color: "white"
 };
 
-const LandingPage = props => {
+const LandingPage = ({setPage}) => {
   const [logged, setLogged] = useState(false);
 
   const loginOpen = () => {
@@ -44,7 +44,7 @@ const LandingPage = props => {
   };
   return (
     <div>
-      <Login logged={logged} loginClose={loginClose} />
+      <Login setPage={setPage} logged={logged} loginClose={loginClose} />
       <PageTemplate header={<Header loginOpen={loginOpen} />}>
         <div align="center">
           <Heading style={headingStyle}>

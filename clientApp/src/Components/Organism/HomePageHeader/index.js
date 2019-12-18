@@ -92,7 +92,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function HomePageHeader({ open, handleDrawerOpen }) {
+export default function HomePageHeader({ open, setPage, handleDrawerOpen }) {
   const classes = useStyles();
   let userIcon = <Avatar alt="r" className={classes.avatar} src={img} />;
   return (
@@ -140,7 +140,7 @@ export default function HomePageHeader({ open, handleDrawerOpen }) {
               <CustomButton type="warning" name="Upgrade" />
             </div>
             <div>
-              <UserMenu name={userIcon} />
+              <UserMenu name={userIcon} setPage={setPage} />
             </div>
           </Toolbar>
         </AppBar>

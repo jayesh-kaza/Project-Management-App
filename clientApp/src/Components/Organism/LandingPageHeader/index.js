@@ -65,7 +65,7 @@ const Header = ({ loginOpen }) => {
       position="relative"
     >
       <div style={divStyle}>
-        <Logo icon="asana.svg" width="50" height="40" />
+        <Logo icon="asana" width="50" height="40" />
         <NavGroup components={firstGroup} />
       </div>
       <NavGroup components={secondGroup} />

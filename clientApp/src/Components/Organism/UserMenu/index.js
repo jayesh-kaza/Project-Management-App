@@ -73,7 +73,7 @@ export default function UserMenu(props) {
           </ListItemIcon>
           <ListItemText primary="zemosolabs" />
         </StyledMenuItem>
-        <FullDivider color=''/>
+        <FullDivider color="" />
         <StyledMenuItem>
           <ListItemIcon></ListItemIcon>
           <ListItemText primary="Organisation Settings" />
@@ -86,7 +86,7 @@ export default function UserMenu(props) {
           <ListItemIcon></ListItemIcon>
           <ListItemText primary="my profile" />
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem onClick={props.setPage}>
           <ListItemIcon></ListItemIcon>
           <ListItemText primary="log out" />
         </StyledMenuItem>

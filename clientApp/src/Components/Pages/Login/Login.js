@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Google from "../../Templates/LoginTemplate/Google";
 import Credential from "../../Molecules/Field/Credential";
-import CustomDivider from "../../Atoms/Divider/CustomDIvider";
+import CustomDivider from "../../Atoms/Divider/CustomDivider";
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -104,7 +104,7 @@ const Login = props => {
             size="large"
             color="inherit"
             className={classes.Button}
-            onClick={props.onChange}
+            onClick={props.setPage}
           >
             Login
           </Button>
