@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import {
   Dialog,
-  DialogActions,
+  DialogTitle,
   DialogContent,
   DialogContentText,
-  DialogTitle,
-  TextField,
-  Button,
   FormControl,
+  Button,
+  TextField,
   InputLabel,
+  MenuItem,
   Select,
-  MenuItem
+  DialogActions
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const projects = ["Asana", "Hello World", "Griet"];
+const teams = ["High Radius", "Asana", "Codility"];
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -26,36 +26,32 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function TaskDialog({ open, handleOpen }) {
-  let date = new Date();
-  let todaysDate =
-    date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+function ProjectDialog({ open, handleOpen }) {
   const classes = useStyles();
-  const [project, setProject] = useState("");
+  const [team, setTeam] = useState();
   return (
     <Dialog open={open} onClose={handleOpen} fullWidth>
-      <DialogTitle align="center">Add Task</DialogTitle>
+      <DialogTitle align="center">Create a new Project</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          Choose an existing project to add the task.
+          Fill out the following to create a new project.
         </DialogContentText>
         <form className={classes.container}>
+          <TextField label="Project Name" style={{ paddingBottom: "10px" }} />
+          <TextField label="Description" style={{ paddingBottom: "20px" }} />
           <FormControl fullWidth style={{ paddingBottom: "10px" }}>
-            <InputLabel htmlFor="project">Project</InputLabel>
+            <InputLabel htmlFor="Team">Team</InputLabel>
             <Select
-              value={project}
-              onChange={event => setProject(event.target.value)}
+              value={team}
+              onChange={event => setTeam(event.target.value)}
             >
-              {projects.map(project => (
-                <MenuItem key={project} value={project}>
-                  {project}
+              {teams.map(team => (
+                <MenuItem key={team} value={team}>
+                  {team}
                 </MenuItem>
               ))}
             </Select>
           </FormControl>
-          <TextField label="Task Name" style={{ paddingBottom: "10px" }} />
-          <TextField label="Assign to" style={{ paddingBottom: "30px" }} />
-          <TextField label="Due by" type="date" defaultValue={todaysDate} />
         </form>
       </DialogContent>
       <DialogActions>
@@ -70,4 +66,4 @@ function TaskDialog({ open, handleOpen }) {
   );
 }
 
-export default TaskDialog;
+export default ProjectDialog;
