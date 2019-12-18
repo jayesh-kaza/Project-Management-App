@@ -49,10 +49,14 @@ const Header = ({ loginOpen }) => {
   const secondGroup = [
     <NavIcons onClick={loginOpen}>Log In</NavIcons>,
     <Button
-      size="small"
       color="primary"
       variant="contained"
-      style={{ backgroundColor: "#635ac7", outline: 0, textTransform: "none" }}
+      style={{
+        backgroundColor: "rgb(99, 100, 199)",
+        color: "white",
+        outline: 0,
+        textTransform: "none"
+      }}
     >
       <Typography style={{ color: "white" }}>Try For Free</Typography>
     </Button>
