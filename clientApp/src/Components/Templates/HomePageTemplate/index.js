@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from "../../Pages/HomePage";
 import TasksPage from "../../Pages/TasksPage";
 import clsx from "clsx";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
