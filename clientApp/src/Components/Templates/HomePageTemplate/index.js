@@ -48,7 +48,7 @@ const routes = [
   }
 ];
 
-function HomePageTemplate({setPage}) {
+function HomePageTemplate({ setPage }) {
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -59,13 +59,17 @@ function HomePageTemplate({setPage}) {
   };
   return (
     <div>
-      <HomePageHeader open={open} setPage={setPage} handleDrawerOpen={handleDrawerOpen} />
+      <HomePageHeader
+        open={open}
+        setPage={setPage}
+        handleDrawerOpen={handleDrawerOpen}
+      />
       <SideBar
         open={open}
         handleDrawerClose={handleDrawerClose}
         routes={routes}
       />
-      <div fullHeight>
+      <div>
         <Switch>
           {routes.map(route => (
             <Route
