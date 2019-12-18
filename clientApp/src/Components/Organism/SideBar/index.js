@@ -1,24 +1,16 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link } from 'react-router-dom';
 import {
     Drawer,
-    Divider,
     IconButton,
-    List,
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-    Button
 } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import HomeIcon from '@material-ui/icons/Home';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
 import Logo from "../../Molecules/Logo";
-
+import DisplayListWithIcon from "../../Molecules/DisplayListWithIcon";
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     root: {
@@ -37,7 +29,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: "center",
         padding: theme.spacing(0, 1),
         ...theme.mixins.toolbar,
-        justifyContent: "flex-end"
+        justifyContent: "space-between"
     },
     content: {
         flexGrow: 1,
@@ -59,13 +51,22 @@ const useStyles = makeStyles(theme => ({
 
 function SideBar({ open, handleDrawerClose, routes }) {
     const classes = useStyles();
+    const list1 = {
+        "Favorites": [null, routes[0].path],
+        "All items": [null, routes[1].path],
+        "Deleted items": [null, routes[2].path]
+    }
+    const list2 = {
+        "Tasks I've Created": [null, routes[0].path],
+        "Assigned to Others": [null, routes[1].path],
+        "Recent Tasks": [null, routes[2].path]
+    }
     const items = {
-        "Home": [<HomeOutlinedIcon style={{ color: "white" }} />, routes[0].path],
-        "My Tasks": [<CheckCircleOutlineIcon />, routes[1].path],
-        "My Projects": [<GroupWorkIcon />, routes[2].path],
-        "Teams": [<GroupRoundedIcon />, routes[3].path],
+        "Home": [<HomeOutlinedIcon fontSize='small' className={classes.icon} />, routes[0].path],
+        "My Tasks": [<CheckCircleOutlineIcon fontSize='small' className={classes.icon} />, routes[1].path],
+        "My Projects": [<GroupWorkIcon fontSize='small' className={classes.icon} />, routes[2].path],
+        "Teams": [<GroupRoundedIcon fontSize='small' className={classes.icon} />, routes[3].path],
     };
-
     return (
         <Drawer
             className={classes.root}
@@ -88,20 +89,9 @@ function SideBar({ open, handleDrawerClose, routes }) {
                     <ChevronRightIcon />
                 </IconButton>
             </div>
-            <Divider />
-            <List>
-                {
-                    Object.keys(items).map(key => (
-                        <Link color='inherit' underline='none' to={items[key][1]}>
-                            <ListItem button key={key}>
-                                <ListItemIcon>
-                                    {items[key][0]}
-                                </ListItemIcon>
-                                <ListItemText primary={key} />
-                            </ListItem>
-                        </Link>
-                    ))}
-            </List>
+            <DisplayListWithIcon flag='true' items={items} />
+            <DisplayListWithIcon flag='false' items={list1} />
+            <DisplayListWithIcon flag='false' items={list2} />
         </Drawer>
     );
 }

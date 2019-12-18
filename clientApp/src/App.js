@@ -1,10 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
-import SideBar from './Components/Organism/SideBar'
-=======
 import HomePageHeader from './Components/Organism/HomePageHeader';
 import SideBar from './Components/Organism/SideBar';
->>>>>>> 8d7edf3cb879288ff206a2f0c1db4dcc47eec7dc
 import {
   BrowserRouter as Router,
   Route,
