@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import {
     Drawer,
     IconButton,
+    Typography,
 } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
@@ -12,6 +13,8 @@ import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
 import Logo from "../../Molecules/Logo";
 import DisplayListWithIcon from "../../Molecules/DisplayListWithIcon";
 import DisplayList from '../../Molecules/DisplayList'
+import StarBorderRoundedIcon from '@material-ui/icons/StarBorderRounded';
+
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     root: {
@@ -54,8 +57,8 @@ function SideBar({ open, handleDrawerClose, routes }) {
     const classes = useStyles();
     const list1 = {
         "Favorites": [null, routes[0].path],
-        "All items": [null, routes[1].path],
-        "Deleted items": [null, routes[2].path]
+        "All Items": [null, routes[1].path],
+        "Deleted Items": [null, routes[2].path]
     }
     const list2 = {
         "Tasks I've Created": [null, routes[0].path],
@@ -68,6 +71,7 @@ function SideBar({ open, handleDrawerClose, routes }) {
         "My Projects": [<GroupWorkIcon fontSize='small' className={classes.icon} />, routes[2].path],
         "Teams": [<GroupRoundedIcon fontSize='small' className={classes.icon} />, routes[3].path],
     };
+    const star = <StarBorderRoundedIcon fontSize='small' />
     return (
         <Drawer
             className={classes.root}
@@ -91,7 +95,9 @@ function SideBar({ open, handleDrawerClose, routes }) {
                 </IconButton>
             </div>
             <DisplayListWithIcon items={items} />
+            <Typography style={{ paddingLeft: '15px', color: '#9ca6af', fontSize: '12px' }} variant='body2' >Favorite by clicking {star} </Typography>
             <DisplayList items={list1} />
+            <Typography style={{ paddingLeft: '15px', color: '#9ca6af', fontSize: '12px' }} variant='body2' >Reports</Typography>
             <DisplayList items={list2} />
         </Drawer>
     );
