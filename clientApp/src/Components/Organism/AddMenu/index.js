@@ -79,6 +79,14 @@ export default function AddMenu() {
     setAnchorEl(null);
   };
 
+  const items = {
+    Task: [<CheckCircleOutlinedIcon fontSize="small" />, handleOpenTask],
+    Project: [<AssignmentOutlinedIcon fontSize="small" />, handleOpenProject],
+    Conversation: [<ForumOutlinedIcon fontSize="small" />, null],
+    Team: [<GroupOutlinedIcon fontSize="small" />, handleOpenTeam],
+    Invite: [<PersonAddOutlinedIcon fontSize="small" />, null]
+  };
+
   return (
     <div>
       <IconButton
@@ -99,36 +107,12 @@ export default function AddMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem onClick={handleOpenTask}>
-          <ListItemIcon>
-            <CheckCircleOutlinedIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Task" />
-        </StyledMenuItem>
-        <StyledMenuItem onClick={handleOpenProject}>
-          <ListItemIcon>
-            <AssignmentOutlinedIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Project" />
-        </StyledMenuItem>
-        <StyledMenuItem onClick={() => console.log("Conversation")}>
-          <ListItemIcon>
-            <ForumOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Conversation" />
-        </StyledMenuItem>
-        <StyledMenuItem onClick={handleOpenTeam}>
-          <ListItemIcon>
-            <GroupOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Team" />
-        </StyledMenuItem>
-        <StyledMenuItem onClick={() => console.log("invite")}>
-          <ListItemIcon>
-            <PersonAddOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Invite" />
-        </StyledMenuItem>
+        {Object.keys(items).map(key => (
+          <StyledMenuItem onClick={items[key][1]}>
+            <ListItemIcon>{items[key][0]}</ListItemIcon>
+            <ListItemText primary={key} />
+          </StyledMenuItem>
+        ))}
       </StyledMenu>
       {openTask ? (
         <TaskDialog open={openTask} handleOpen={handleOpenTask} />
