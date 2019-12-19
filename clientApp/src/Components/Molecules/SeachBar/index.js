@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useDebounce from "../../Helpers/Debounce";
+import SearchIcon from "@material-ui/icons/Search";
 import {
   InputBase,
   Popper,
@@ -28,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     height: "10%",
     fontSize: "12px",
+    paddingLeft: '39px',
     [theme.breakpoints.up("sm")]: {
       width: 100,
       height: 12,
@@ -91,6 +93,7 @@ const SearchBar = props => {
         variant="rounded"
         squared="false"
         placeholder="Search"
+        //startAdornment={<SearchIcon fontSize='small' style={{ color: "#bdbdbd" }} />}
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput
@@ -98,7 +101,7 @@ const SearchBar = props => {
         inputProps={{ "aria-label": "search" }}
         onChange={e => setSearch(e)}
       />
-      <ClickAwayListener onClickAway={()=>{setOpen(!open)}}>
+      <ClickAwayListener onClickAway={() => { setOpen(!open) }}>
         <Popper
           style={{ marginTop: "2px" }}
           open={open}
@@ -127,10 +130,10 @@ const SearchBar = props => {
                     ))}
                   </List>
                 ) : (
-                  <Typography className={classes.typography}>
-                    <div>No results found</div>
-                  </Typography>
-                )}
+                    <Typography className={classes.typography}>
+                      <div>No results found</div>
+                    </Typography>
+                  )}
               </Paper>
             </Fade>
           )}

@@ -20,7 +20,7 @@ import clsx from "clsx";
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    // flexGrow: 1
   },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
@@ -124,7 +124,6 @@ export default function HomePageHeader({ open, handleDrawerOpen }) {
             <Typography className={classes.title} variant="h6" noWrap>
               Home
             </Typography>
-
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon fontSize="small" style={{ color: "#bdbdbd" }} />
