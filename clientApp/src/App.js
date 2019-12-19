@@ -1,54 +1,19 @@
-import React from "react";
-import Header from "./Components/Header";
-import SideBar from "./Components/SideBar";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from 'react-router-dom';
-
-const routes = [
-  { path: '/',
-    exact: true,
-    main: () => <div align="center">Home</div>
-  },
-  { path: '/tasks',
-    main: () => <div align="center">My Tasks</div>
-  },
-  { path: '/projects',
-    main: () => <div align="center">My Projects</div>
-  },
-  {
-    path: '/teams',
-    main: ()=> <div align="center">My Teams</div>
-  }
-]
+import React, { useState } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import HomePageTemplate from "./Components/Templates/HomePageTemplate";
+import LandingPage from "./Components/Pages/LandingPage";
 
 const App = props => {
-  const [open, setOpen] = React.useState(false);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
+  const [page, setPage] = useState(false);
+  const homePage = () => setPage(true);
+  const landingPage = () => setPage(false);
   return (
     <Router>
-    <div>
-      <Header open={open} handleDrawerOpen={handleDrawerOpen} />
-      <SideBar open={open} handleDrawerClose={handleDrawerClose} routes={routes}/>
-      <Switch>
-      {routes.map((route)=>(
-      <Route 
-          key={route.path}
-          path = {route.path}
-          exact = {route.exact}
-          component = {route.main}/> 
-      ))}
-      </Switch>
-    </div>
+      {page ? (
+        <HomePageTemplate setPage={landingPage} />
+      ) : (
+        <LandingPage setPage={homePage} />
+      )}
     </Router>
   );
 };
