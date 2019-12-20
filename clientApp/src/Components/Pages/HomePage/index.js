@@ -17,13 +17,19 @@ import Chip from '@material-ui/core/Chip';
 import CustomCard from '../../Molecules/CustomCard/Card'
 const cardColors=['#']
 const useStyles = makeStyles(theme=>({
+    rootHolder:{
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'space-between'
+    },
+    padding:{
+        marginBottom:theme.spacing(15)
+    },
     cardcontainer:{
         display:'flex',
         justifyContent:'center'
     },
-    card:{
-        backgroundColor: "primary"
-    },
+ 
     cell:{
         paddingTop: '5px',
         paddingBottom: '5px'
@@ -39,32 +45,15 @@ details:{
     },
     expand:{
         flexGrow:0.4,
-        marginTop:theme.spacing(15)
     },
-    root: {
-        minWidth: 20,
-       marginBottom:theme.spacing(6),
-       marginTop:theme.spacing(6),
-        backgroundColor:'#E362E3',
-        marginRight:theme.spacing(3)
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
+  
     title: {
         fontSize: 14,
     },
     pos: {
         marginBottom: 12,
     },
-    margin:{
-        marginBottom:theme.spacing(6),
-        marginTop:theme.spacing(6),
-        marginLeft:theme.spacing(8),
-        marginRight:theme.spacing(8)
-    }
+   
 }));
 const HomePage = (props) => {
     const classes = useStyles();
@@ -78,10 +67,13 @@ const HomePage = (props) => {
       setExpanded(isExpanded ? panel : false);
     };
     return (
-        <div>
+        <div className={classes.rootHolder}>
 
-        <div className={classes.container}>
-            <ExpansionPanel className={classes.expand} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <div className={classes.padding}>
+        </div>
+
+        <div className={classes.container}>   
+        <ExpansionPanel className={classes.expand} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
@@ -111,6 +103,26 @@ const HomePage = (props) => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
         </div>
+
+
+
+        {/* <div className={classes.container}>
+           
+           <ExpansionPanel className={classes.expand} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+           <ExpansionPanelSummary
+             expandIcon={<ExpandMoreIcon />}
+             aria-controls="panel1bh-content"
+             id="panel1bh-header"
+             className={classes.expand}
+           >
+             <Typography className={classes.heading}>Tasks Due Soon</Typography>
+   
+           </ExpansionPanelSummary>
+           <ExpansionPanelDetails className={classes.details}>
+         
+           </ExpansionPanelDetails>
+         </ExpansionPanel>
+           </div> */}
         <div className={classes.cardcontainer}>
         <CustomCard/>
         <CustomCard/>

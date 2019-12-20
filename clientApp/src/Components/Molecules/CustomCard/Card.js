@@ -25,8 +25,8 @@ return (
 
         <Paper className={classes.root} 
                style={{ backgroundColor:colors[Math.floor(Math.random() * Math.floor(3))],borderRadius:'25px'}} 
-            //    elevation={6}>
-            >           
+               elevation={6}>
+                       
                 <div className={classes.margin}>
                 <AssignmentIcon style={{color:'white',background:"transparant"}} fontSize="large"/>
                 </div>

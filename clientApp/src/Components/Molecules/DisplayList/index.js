@@ -57,7 +57,6 @@ const DisplayList = (props) => {
                         </ListItem>
                     </Link>
                 ))}
-            <FullDivider space='10px' color='#424242' />
         </List>
     )
 }
