@@ -24,10 +24,15 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     detail: {
         display: "flex",
-        flexGrow: 1
+        flexGrow: 1,
+        paddingLeft: '0px', paddingTop: '0px', paddingBottom: '0px', marginBottom: '-10px', marginRight: '-40px'
     },
     root: {
         display: "flex"
+    },
+    icon: {
+        color: "white",
+        backgroundColor: 'transparent', outline: "0",
     },
     drawer: {
         width: drawerWidth,
@@ -64,10 +69,14 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: '0px',
         paddingRight: '0px',
     },
-    summary: {
-        paddingLeft: '0px',
-        marginBottom: '-20px',
-        marginTop: '-20px'
+    expansionpanedetails: {
+        paddingLeft: '0px', paddingTop: '0px', paddingBottom: '0px', marginBottom: '-10px', marginRight: '-40px'
+    }
+    ,
+    typography: {
+        paddingLeft: '15px',
+        color: '#9ca6af',
+        fontSize: '12px',
     }
 }));
 
@@ -80,7 +89,7 @@ function SideBar({ open, handleDrawerClose, routes }) {
     }
     const list2 = {
         "Tasks I've Created": [null, routes[0].path],
-        "Assigned to Others": [null, routes[1].path],
+        "Tasks I've Assigned to Others": [null, routes[1].path],
         "Recent Tasks": [null, routes[2].path]
     }
     const items = {
@@ -129,19 +138,14 @@ function SideBar({ open, handleDrawerClose, routes }) {
                         marginBottom: '-10px',
                         marginTop: '-10px'
                     }}
-                        expandIcon={<ExpandMoreIcon
-                            style={{
-                                color: "white",
-                                backgroundColor: 'transparent', outline: "0",
-                            }} />}
+                        expandIcon={<ExpandMoreIcon className={classes.icon} />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                         className={classes.expansionpanelsummary}
                     >
-                        <Typography style={{ paddingLeft: '15px', color: '#9ca6af', fontSize: '12px' }} variant='body2' >Reports</Typography>
+                        <Typography className={classes.typography} variant='body2' >Reports</Typography>
                     </ExpansionPanelSummary >
-
-                    <ExpansionPanelDetails className={classes.detail} style={{ paddingLeft: '0px', paddingTop: '0px', paddingBottom: '0px', marginBottom: '-10px' }}>
+                    <ExpansionPanelDetails className={classes.detail} >
                         <DisplayList items={list2} />
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
