@@ -11,9 +11,10 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+
 import Chip from '@material-ui/core/Chip';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+
+import CustomCard from '../../Molecules/CustomCard/Card'
 const cardColors=['#']
 const useStyles = makeStyles(theme=>({
     cardcontainer:{
@@ -45,8 +46,6 @@ details:{
        marginBottom:theme.spacing(6),
        marginTop:theme.spacing(6),
         backgroundColor:'#E362E3',
-    
-     
         marginRight:theme.spacing(3)
     },
     bullet: {
@@ -112,23 +111,11 @@ const HomePage = (props) => {
       </ExpansionPanel>
         </div>
         <div className={classes.cardcontainer}>
-        <Paper className={classes.root} elevation={3}>           
-            <div className={classes.margin}>
-            <AssignmentIcon style={{color:'white',background:"transparant"}} fontSize="large"/>
-            </div>
-        </Paper>
+    
+        <CustomCard/>
+        <CustomCard/>
+        <CustomCard/>
 
-        <Paper className={classes.root} elevation={3}>           
-            <div className={classes.margin}>
-            <AssignmentIcon style={{color:'white',background:"transparant"}} fontSize="large"/>
-            </div>
-        </Paper>
-
-        <Paper className={classes.root} elevation={3}>           
-            <div className={classes.margin}>
-            <AssignmentIcon style={{color:'white',background:"transparant"}} fontSize="large"/>
-            </div>
-        </Paper>
 
      
 
