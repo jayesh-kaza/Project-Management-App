@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import {
   IconButton,
@@ -13,6 +13,9 @@ import CheckCircleOutlinedIcon from "@material-ui/icons/CheckCircleOutlined";
 import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 import GroupOutlinedIcon from "@material-ui/icons/GroupOutlined";
 import ForumOutlinedIcon from "@material-ui/icons/ForumOutlined";
+import TaskDialog from "../../Molecules/TaskDialog";
+import ProjectDialog from "../../Molecules/ProjectDialog";
+import TeamDialog from "../../Molecules/TeamDialog";
 
 const StyledMenu = withStyles({
   paper: {}
@@ -35,7 +38,7 @@ const StyledMenu = withStyles({
 const StyledMenuItem = withStyles(theme => ({
   root: {
     "&:hover": {
-      //backgroundColor:linearGradient('45deg', '#ff5263 0%', '#ff7381 60%', '#fcbd01 115%')
+      // backgroundColor: `linearGradient('45deg', '#ff5263 0%', '#ff7381 60%', '#fcbd01 115%')`
     },
     "&:focus": {
       backgroundColor: theme.palette.primary.main,
@@ -47,7 +50,10 @@ const StyledMenuItem = withStyles(theme => ({
 }))(MenuItem);
 
 export default function AddMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [openTask, setOpenTask] = useState(false);
+  const [openProject, setOpenProject] = useState(false);
+  const [openTeam, setOpenTeam] = useState(false);
   let addIcon = <AddCircleIcon color="secondary" />;
 
   const handleClick = event => {
@@ -58,17 +64,31 @@ export default function AddMenu() {
     setAnchorEl(null);
   };
 
+  const handleOpenTask = () => {
+    setOpenTask(!openTask);
+    setAnchorEl(null);
+  };
+
+  const handleOpenProject = () => {
+    setOpenProject(!openProject);
+    setAnchorEl(null);
+  };
+
+  const handleOpenTeam = () => {
+    setOpenTeam(!openTeam);
+    setAnchorEl(null);
+  };
+
+  const items = {
+    Task: [<CheckCircleOutlinedIcon fontSize="small" />, handleOpenTask],
+    Project: [<AssignmentOutlinedIcon fontSize="small" />, handleOpenProject],
+    Conversation: [<ForumOutlinedIcon fontSize="small" />, null],
+    Team: [<GroupOutlinedIcon fontSize="small" />, handleOpenTeam],
+    Invite: [<PersonAddOutlinedIcon fontSize="small" />, null]
+  };
+
   return (
     <div>
-      {/* <Button
-        aria-controls="customized-menu"
-        aria-haspopup="true"
-        onClick={handleClick}
-        style={{ backgroundColor: 'transparent' }} 
-        disableRipple="true"
-        >
-        {addIcon}
-      </Button> */}
       <IconButton
         children={addIcon}
         onClick={handleClick}
@@ -87,37 +107,22 @@ export default function AddMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem>
-          <ListItemIcon>
-            <CheckCircleOutlinedIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Task" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <AssignmentOutlinedIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Project" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <ForumOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Conversation" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <GroupOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Team" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <PersonAddOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Invite" />
-        </StyledMenuItem>
+        {Object.keys(items).map(key => (
+          <StyledMenuItem onClick={items[key][1]}>
+            <ListItemIcon>{items[key][0]}</ListItemIcon>
+            <ListItemText primary={key} />
+          </StyledMenuItem>
+        ))}
       </StyledMenu>
+      {openTask ? (
+        <TaskDialog open={openTask} handleOpen={handleOpenTask} />
+      ) : null}
+      {openProject ? (
+        <ProjectDialog open={openProject} handleOpen={handleOpenProject} />
+      ) : null}
+      {openTeam ? (
+        <TeamDialog open={openTeam} handleOpen={handleOpenTeam} />
+      ) : null}
     </div>
   );
 }
