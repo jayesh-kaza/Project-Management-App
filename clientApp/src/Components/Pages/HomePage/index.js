@@ -73,7 +73,7 @@ const HomePage = (props) => {
     {task:'auth0 resourse authorization',taskType:'react'}
         ]
     const [expanded, setExpanded] = React.useState(false);
-
+    const task=<h4>java</h4>
     const handleChange = panel => (event, isExpanded) => {
       setExpanded(isExpanded ? panel : false);
     };
@@ -86,6 +86,7 @@ const HomePage = (props) => {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
+          className={classes.expand}
         >
           <Typography className={classes.heading}>Tasks Due Soon</Typography>
 
@@ -111,14 +112,9 @@ const HomePage = (props) => {
       </ExpansionPanel>
         </div>
         <div className={classes.cardcontainer}>
-    
         <CustomCard/>
         <CustomCard/>
         <CustomCard/>
-
-
-     
-
     </div>
 
         </div>
