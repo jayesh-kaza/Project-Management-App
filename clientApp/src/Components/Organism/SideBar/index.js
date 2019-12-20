@@ -1,5 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import {
     Drawer,
     IconButton,
@@ -14,9 +18,14 @@ import Logo from "../../Molecules/Logo";
 import DisplayListWithIcon from "../../Molecules/DisplayListWithIcon";
 import DisplayList from '../../Molecules/DisplayList'
 import StarBorderRoundedIcon from '@material-ui/icons/StarBorderRounded';
+import FullDivider from "../../Atoms/Divider";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
+    detail: {
+        display: "flex",
+        flexGrow: 1
+    },
     root: {
         display: "flex"
     },
@@ -50,6 +59,15 @@ const useStyles = makeStyles(theme => ({
             duration: theme.transitions.duration.enteringScreen
         }),
         marginLeft: 0
+    },
+    expansionpanel: {
+        paddingLeft: '0px',
+        paddingRight: '0px',
+    },
+    summary: {
+        paddingLeft: '0px',
+        marginBottom: '-20px',
+        marginTop: '-20px'
     }
 }));
 
@@ -96,9 +114,39 @@ function SideBar({ open, handleDrawerClose, routes }) {
             </div>
             <DisplayListWithIcon items={items} />
             <Typography style={{ paddingLeft: '15px', color: '#9ca6af', fontSize: '12px' }} variant='body2' >Favorite by clicking {star} </Typography>
+
             <DisplayList items={list1} />
-            <Typography style={{ paddingLeft: '15px', color: '#9ca6af', fontSize: '12px' }} variant='body2' >Reports</Typography>
-            <DisplayList items={list2} />
+            <FullDivider space='10px' color='#424242' />
+            <div style={{ display: 'flex', flexDirection: 'column', flexWrap: 'nowrap', justifyContent: 'flex-start' }}>
+                <ExpansionPanel
+                    elevation='none'
+                    style={{
+                        backgroundColor: "#151b26",
+                    }}
+                >
+                    <ExpansionPanelSummary style={{
+                        paddingLeft: '0px',
+                        marginBottom: '-10px',
+                        marginTop: '-10px'
+                    }}
+                        expandIcon={<ExpandMoreIcon
+                            style={{
+                                color: "white",
+                                backgroundColor: 'transparent', outline: "0",
+                            }} />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                        className={classes.expansionpanelsummary}
+                    >
+                        <Typography style={{ paddingLeft: '15px', color: '#9ca6af', fontSize: '12px' }} variant='body2' >Reports</Typography>
+                    </ExpansionPanelSummary >
+
+                    <ExpansionPanelDetails className={classes.detail} style={{ paddingLeft: '0px', paddingTop: '0px', paddingBottom: '0px', marginBottom: '-10px' }}>
+                        <DisplayList items={list2} />
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+                <FullDivider space='5px' color='#424242' />
+            </div>
         </Drawer>
     );
 }
