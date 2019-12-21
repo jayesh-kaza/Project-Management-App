@@ -15,7 +15,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Chip from '@material-ui/core/Chip';
 
 import CustomCard from '../../Molecules/CustomCard/Card'
-const cardColors=['#']
 const useStyles = makeStyles(theme=>({
     rootHolder:{
         display:'flex',
@@ -46,6 +45,9 @@ details:{
     expand:{
         flexGrow:0.4,
     },
+    expand2:{
+      flexGrow:0.44,
+  },
   
     title: {
         fontSize: 14,
@@ -61,10 +63,15 @@ const HomePage = (props) => {
     {task:'spring security',taskType:'java'},
     {task:'auth0 resourse authorization',taskType:'react'}
         ]
+      const fakeTable=[]
     const [expanded, setExpanded] = React.useState(false);
+    const [expanded2, setExpanded2] = React.useState(false);
     const task=<h4>java</h4>
     const handleChange = panel => (event, isExpanded) => {
       setExpanded(isExpanded ? panel : false);
+    };
+    const handleChange2 = panel => (event, isExpanded) => {
+      setExpanded2(isExpanded ? panel : false);
     };
     return (
         <div className={classes.rootHolder}>
@@ -104,25 +111,27 @@ const HomePage = (props) => {
       </ExpansionPanel>
         </div>
 
+        <div className={classes.padding}></div>
+        <div className={classes.container}> 
+        <ExpansionPanel className={classes.expand2} expanded={expanded2 === 'panel1'} onChange={handleChange2('panel1')}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+          className={classes.expand2}
+        >
+          <Typography className={classes.heading}>Recent Projects</Typography>
+
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails className={classes.details}>
+
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      </div>
 
 
-        {/* <div className={classes.container}>
-           
-           <ExpansionPanel className={classes.expand} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-           <ExpansionPanelSummary
-             expandIcon={<ExpandMoreIcon />}
-             aria-controls="panel1bh-content"
-             id="panel1bh-header"
-             className={classes.expand}
-           >
-             <Typography className={classes.heading}>Tasks Due Soon</Typography>
-   
-           </ExpansionPanelSummary>
-           <ExpansionPanelDetails className={classes.details}>
-         
-           </ExpansionPanelDetails>
-         </ExpansionPanel>
-           </div> */}
+
+
         <div className={classes.cardcontainer}>
         <CustomCard/>
         <CustomCard/>
