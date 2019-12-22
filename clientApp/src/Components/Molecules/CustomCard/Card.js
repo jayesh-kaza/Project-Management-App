@@ -18,18 +18,19 @@ const useStyles = makeStyles(theme=>({
     }
 
 }));
-const Card=()=>{
+const Card=(props)=>{
    
     const classes = useStyles();
 return (
 
         <Paper className={classes.root} 
-               style={{ backgroundColor:colors[Math.floor(Math.random() * Math.floor(3))],borderRadius:'25px'}} 
+               style={{ backgroundColor:props.color,borderRadius:'25px',...props.style}} 
                elevation={6}>
                        
                 <div className={classes.margin}>
-                <AssignmentIcon style={{color:'white',background:"transparant"}} fontSize="large"/>
+              {props.icon}
                 </div>
+
         </Paper>
     
 );

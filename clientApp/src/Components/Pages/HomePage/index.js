@@ -11,8 +11,10 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-
+import AddBoxTwoToneIcon from '@material-ui/icons/AddBoxTwoTone';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import Chip from '@material-ui/core/Chip';
+import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
 
 import CustomCard from '../../Molecules/CustomCard/Card'
 const useStyles = makeStyles(theme=>({
@@ -21,6 +23,7 @@ const useStyles = makeStyles(theme=>({
         flexDirection:'column',
         justifyContent:'space-between'
     },
+      
     padding:{
         marginBottom:theme.spacing(15)
     },
@@ -40,7 +43,9 @@ details:{
 },
     container:{
         display:'flex',
-       justifyContent:'center'
+       justifyContent:'center',
+       marginBottom:theme.spacing(3)
+
     },
     expand:{
         flexGrow:0.4,
@@ -59,6 +64,7 @@ details:{
 }));
 const HomePage = (props) => {
     const classes = useStyles();
+    const colors=['#E362E3','#EA4E9D','#AA62E3']
     const rows=[{task:'auth0',taskType:'java'},
     {task:'spring security',taskType:'java'},
     {task:'auth0 resourse authorization',taskType:'react'}
@@ -130,12 +136,11 @@ const HomePage = (props) => {
       </div>
 
 
-
-
         <div className={classes.cardcontainer}>
-        <CustomCard/>
-        <CustomCard/>
-        <CustomCard/>
+        <CustomCard color={colors[0]} icon={<AssignmentIcon style={{color:'white',background:"transparant"}} fontSize="large"/>}/>
+        <CustomCard color={colors[1]} icon={<AssignmentIcon style={{color:'white',background:"transparant"}} fontSize="large"/>}/>
+        <CustomCard color={colors[2]} icon={<AssignmentIcon style={{color:'white',background:"transparant"}} fontSize="large"/>}/>
+        <CustomCard color='#FFFFF' style={{borderStyle: 'dashed',borderWidth:'3px'}} icon={<AddCircleOutlineTwoToneIcon fontSize="large"/>} />
     </div>
 
         </div>
