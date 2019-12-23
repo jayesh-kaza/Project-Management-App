@@ -6,15 +6,19 @@ import clsx from 'classnames'
 const colors=['#E362E3','#EA4E9D','#AA62E3']
 const useStyles = makeStyles(theme=>({
     root:{
-       marginBottom:theme.spacing(5),
-       marginTop:theme.spacing(5),
-        marginRight:theme.spacing(2)
+       marginBottom:theme.spacing(4),
+       marginTop:theme.spacing(4),
+        marginRight:theme.spacing(1),
+        '&:hover': {
+            marginTop:theme.spacing(1),
+            padding:'13px'
+          }
     },
     margin:{
-        marginBottom:theme.spacing(6),
-        marginTop:theme.spacing(6),
-        marginLeft:theme.spacing(6),
-        marginRight:theme.spacing(6)
+        marginBottom:theme.spacing(5),
+        marginTop:theme.spacing(5),
+        marginLeft:theme.spacing(5),
+        marginRight:theme.spacing(5)
     }
 
 }));
@@ -25,7 +29,7 @@ return (
 
         <Paper className={classes.root} 
                style={{ backgroundColor:props.color,borderRadius:'25px',...props.style}} 
-               elevation={6}>
+              >
                        
                 <div className={classes.margin}>
               {props.icon}

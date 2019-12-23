@@ -51,7 +51,7 @@ details:{
         flexGrow:0.4,
     },
     expand2:{
-      flexGrow:0.44,
+      flexGrow:0.47,
   },
   
     title: {
@@ -117,7 +117,7 @@ const HomePage = (props) => {
       </ExpansionPanel>
         </div>
 
-        <div className={classes.padding}></div>
+        {/* <div className={classes.padding}></div> */}
         <div className={classes.container}> 
         <ExpansionPanel className={classes.expand2} expanded={expanded2 === 'panel1'} onChange={handleChange2('panel1')}>
         <ExpansionPanelSummary
